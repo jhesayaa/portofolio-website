@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import TiltCard from './TiltCard';
+import Image from 'next/image';
 
 const ProfileCard = () => {
   return (
@@ -16,18 +17,25 @@ const ProfileCard = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-primary-600 via-pink-600 to-purple-600 rounded-3xl blur-xl opacity-50 group-hover:opacity-70 transition-opacity duration-500" />
         
         <div className="relative bg-gradient-to-br from-gray-900/90 to-black/90 backdrop-blur-xl rounded-3xl p-8 border border-white/10">
-          {/* Profile Image - Large centered */}
+          {/* Profile Image Section */}
           <div className="flex flex-col items-center">
             <motion.div
               whileHover={{ scale: 1.05 }}
               transition={{ type: 'spring', stiffness: 300 }}
               className="relative mb-6"
             >
-              {/* Avatar with gradient border */}
+              {/* Photo with gradient border */}
               <div className="w-48 h-48 rounded-2xl bg-gradient-to-br from-primary-500 via-pink-500 to-purple-500 p-1">
-                <div className="w-full h-full rounded-2xl bg-gradient-to-br from-gray-800 to-black flex items-center justify-center">
-                  {/* Replace with your image */}
-                  <div className="text-7xl font-bold gradient-text">JGA</div>
+                <div className="w-full h-full rounded-2xl overflow-hidden bg-black">
+                  {/* Replace with your photo */}
+                  <Image
+                    src="/profile.jpg" // ← Taruh foto kamu di folder public/profile.jpg
+                    alt="Jhesaya Giovani Andromeda"
+                    width={192}
+                    height={192}
+                    className="w-full h-full object-cover"
+                    priority
+                  />
                 </div>
               </div>
               
@@ -61,7 +69,7 @@ const ProfileCard = () => {
             {/* Stats */}
             <div className="w-full grid grid-cols-3 gap-4 mb-6">
               <div className="text-center p-3 rounded-xl bg-white/5 border border-white/10">
-                <div className="text-2xl font-bold text-white">50+</div>
+                <div className="text-2xl font-bold text-white">10+</div>
                 <div className="text-xs text-gray-400">Projects</div>
               </div>
               <div className="text-center p-3 rounded-xl bg-white/5 border border-white/10">
@@ -69,7 +77,7 @@ const ProfileCard = () => {
                 <div className="text-xs text-gray-400">Years</div>
               </div>
               <div className="text-center p-3 rounded-xl bg-white/5 border border-white/10">
-                <div className="text-2xl font-bold text-white">20+</div>
+                <div className="text-2xl font-bold text-white">3</div>
                 <div className="text-xs text-gray-400">Clients</div>
               </div>
             </div>

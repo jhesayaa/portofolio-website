@@ -3,11 +3,12 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Code2, Rocket, Users, Github, Linkedin, Mail } from 'lucide-react';
+import { User, GraduationCap, Star, Github, Linkedin, Instagram, Mail } from 'lucide-react';
 import TiltCard from './TiltCard';
 import ParallaxSection from './ParallaxSection';
 import ProfileCard from './ProfileCard';
-import ScrollVelocity from './ScrollVelocity';
+import ScrollVelocityFramer from './ScrollVelocityFramer';
+import ScrollReveal from './ScrollReveal';
 
 const About = () => {
   const ref = useRef(null);
@@ -32,141 +33,149 @@ const About = () => {
     },
   };
 
-  const features = [
+  const socialLinks = [
     {
-      icon: <Code2 className="w-8 h-8" />,
-      title: 'Clean Code',
-      description: 'Writing maintainable and scalable code that follows best practices',
+      name: 'GitHub',
+      icon: <Github className="w-5 h-5" />,
+      href: 'https://github.com/yourusername',
+      color: 'hover:border-gray-400'
     },
     {
-      icon: <Rocket className="w-8 h-8" />,
-      title: 'Fast Performance',
-      description: 'Optimizing applications for speed and efficiency',
+      name: 'LinkedIn',
+      icon: <Linkedin className="w-5 h-5" />,
+      href: 'https://linkedin.com/in/yourusername',
+      color: 'hover:border-blue-400'
     },
     {
-      icon: <Users className="w-8 h-8" />,
-      title: 'User-Focused',
-      description: 'Creating intuitive experiences that users love',
+      name: 'Instagram',
+      icon: <Instagram className="w-5 h-5" />,
+      href: 'https://instagram.com/yourusername',
+      color: 'hover:border-pink-400'
+    },
+    {
+      name: 'Email',
+      icon: <Mail className="w-5 h-5" />,
+      href: 'mailto:your.email@example.com',
+      color: 'hover:border-primary-400'
     },
   ];
 
   return (
     <section id="about" className="py-20 relative overflow-hidden" ref={ref}>
       <ParallaxSection speed={0.2}>
+        {/* Full Width Scroll Velocity */}
+        <div className="mb-16 w-full">
+          <ScrollVelocityFramer
+            text="ABOUT ME"
+            velocity={5}
+            className="gradient-text opacity-50"
+          />
+          <ScrollVelocityFramer
+            text="ABOUT ME"
+            velocity={-5}
+            className="gradient-text opacity-40"
+          />
+        </div>
+
+        {/* Content with padding */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Scroll Velocity Title */}
-          <div className="mb-16 overflow-hidden">
-            <ScrollVelocity 
-              text="ABOUT ME" 
-              baseVelocity={-2}
-              className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold opacity-10"
-            />
-          </div>
-
-          {/* Traditional Title (Optional - bisa dihapus kalau mau Scroll Velocity aja) */}
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            animate={isInView ? 'visible' : 'hidden'}
-            className="text-center mb-16"
-          >
-            <motion.h2
-              variants={itemVariants}
-              className="text-4xl sm:text-5xl font-bold mb-4"
-            >
-              About <span className="gradient-text">Me</span>
-            </motion.h2>
-            <motion.div
-              variants={itemVariants}
-              className="w-20 h-1 bg-gradient-to-r from-primary-600 to-pink-600 mx-auto"
-            ></motion.div>
-          </motion.div>
-
           <motion.div
             variants={containerVariants}
             initial="hidden"
             animate={isInView ? 'visible' : 'hidden'}
             className="grid md:grid-cols-2 gap-12 items-center mb-16"
           >
-            {/* Info & Buttons - Sebelah KIRI */}
-            <motion.div variants={itemVariants} className="space-y-8">
-              {/* Text Info */}
-              <div>
-                <h3 className="text-4xl font-bold mb-2 gradient-text">
-                  Jhesaya Giovani Andromeda
-                </h3>
-                <p className="text-2xl text-primary-400 mb-4">Full Stack Developer</p>
-                <p className="text-gray-300 leading-relaxed mb-6">
-                  I'm a passionate Full Stack Developer with a love for creating 
-                  beautiful and functional web applications. I specialize in modern 
-                  web technologies and always strive to write clean, efficient code.
-                </p>
-                <p className="text-gray-300 leading-relaxed">
-                  My journey in web development started with a curiosity about how
-                  things work on the internet, and it has evolved into a passion
-                  for building solutions that make a real impact.
-                </p>
-              </div>
-
-              {/* Social Buttons */}
-              <div className="flex gap-4">
-                <motion.a
-                  href="https://github.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ scale: 1.05, y: -5 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="flex items-center gap-2 px-6 py-3 rounded-full bg-white/5 border border-white/10 hover:border-primary-500 text-white transition-all duration-300"
-                >
-                  <Github className="w-5 h-5" />
-                  <span>GitHub</span>
-                </motion.a>
-                <motion.a
-                  href="https://linkedin.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ scale: 1.05, y: -5 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="flex items-center gap-2 px-6 py-3 rounded-full bg-white/5 border border-white/10 hover:border-primary-500 text-white transition-all duration-300"
-                >
-                  <Linkedin className="w-5 h-5" />
-                  <span>LinkedIn</span>
-                </motion.a>
-                <motion.a
-                  href="mailto:jhesaya@example.com"
-                  whileHover={{ scale: 1.05, y: -5 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-primary-600 to-pink-600 text-white transition-all duration-300 hover:shadow-lg hover:shadow-primary-600/50"
-                >
-                  <Mail className="w-5 h-5" />
-                  <span>Email</span>
-                </motion.a>
-              </div>
-
-              {/* Features Grid */}
-              <div className="grid grid-cols-1 gap-4 mt-8">
-                {features.map((feature, index) => (
-                  <motion.div
-                    key={index}
-                    whileHover={{ x: 10 }}
-                    className="glass rounded-lg p-4 flex items-center gap-4 cursor-pointer transition-all duration-300 hover:border-primary-500"
+            {/* Info Cards - Sebelah KIRI */}
+            <motion.div variants={itemVariants} className="space-y-6">
+              {/* Introduction Card */}
+              <TiltCard>
+                <div className="glass rounded-2xl p-6 border border-white/10 hover:border-primary-500 transition-all duration-300">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary-600 to-pink-600 flex items-center justify-center">
+                      <User className="w-5 h-5 text-white" />
+                    </div>
+                    <h3 className="text-2xl font-bold gradient-text">Introduction</h3>
+                  </div>
+                  <ScrollReveal
+                    baseOpacity={0}
+                    enableBlur={true}
+                    baseRotation={3}
+                    blurStrength={6}
+                    textClassName="text-gray-300 leading-relaxed"
                   >
-                    <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-primary-600/20 flex items-center justify-center text-primary-400">
-                      {feature.icon}
+                    I'm an Information Technology student at Dian Nuswantoro University with a passion for AI, full-stack development, and creating innovative digital solutions. Currently in my 1st semester with a focus on building modern web applications.
+                  </ScrollReveal>
+                </div>
+              </TiltCard>
+
+              {/* Education Card */}
+              <TiltCard>
+                <div className="glass rounded-2xl p-6 border border-white/10 hover:border-primary-500 transition-all duration-300">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary-600 to-pink-600 flex items-center justify-center">
+                      <GraduationCap className="w-5 h-5 text-white" />
                     </div>
-                    <div>
-                      <h4 className="text-lg font-semibold text-white">
-                        {feature.title}
-                      </h4>
-                      <p className="text-gray-400 text-sm">{feature.description}</p>
+                    <h3 className="text-2xl font-bold gradient-text">Education</h3> 
+                  </div>
+                  
+                  {/* University Info */}
+                  <div className="mb-4 p-4 bg-white/5 rounded-xl border border-white/5">
+                    <div className="flex items-start gap-3 mb-2">
+                      <GraduationCap className="w-5 h-5 text-primary-400 mt-1" />
+                      <div className="flex-1">
+                        <h4 className="text-lg font-bold gradient-text">Dian Nuswantoro University</h4>
+                        <p className="text-sm text-gray-400">Bachelor's in Informatics Engineering</p>
+                        <p className="text-xs text-gray-500">Aug 2025 – Present</p>
+                      </div>
                     </div>
-                  </motion.div>
-                ))}
-              </div>
+                    <div className="flex items-center gap-2 mt-3">
+                      <Star className="w-4 h-4 text-primary-400" />
+                      <span className="text-sm font-semibold text-white">GPA: -/4.0</span>
+                    </div>
+                  </div>
+
+                  {/* Current Stats */}
+                  <div className="grid grid-cols-2 gap-3">
+                    <div className="p-3 bg-gradient-to-br from-primary-600/20 to-pink-600/20 rounded-xl border border-primary-500/30 text-center">
+                      <div className="text-2xl font-bold gradient-text">1st</div>
+                      <div className="text-xs text-gray-400">Current Semester</div>
+                    </div>
+                    <div className="p-3 bg-gradient-to-br from-primary-600/20 to-pink-600/20 rounded-xl border border-primary-500/30 text-center">
+                      <div className="text-2xl font-bold gradient-text">-</div>
+                      <div className="text-xs text-gray-400">Current GPA</div>
+                    </div>
+                  </div>
+                </div>
+              </TiltCard>
+
+              {/* Social Links Card */}
+              <TiltCard>
+                <div className="glass rounded-2xl p-6 border border-white/10 hover:border-primary-500 transition-all duration-300">
+                  <h3 className="text-xl font-bold gradient-text mb-4">Connect With Me</h3>
+                  <div className="grid grid-cols-2 gap-3">
+                    {socialLinks.map((social, index) => (
+                      <motion.a
+                        key={index}
+                        href={social.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        whileHover={{ scale: 1.05, y: -5 }}
+                        whileTap={{ scale: 0.95 }}
+                        className={`flex items-center gap-3 p-4 rounded-xl bg-white/5 border border-white/10 ${social.color} transition-all duration-300 group`}
+                      >
+                        <div className="text-gray-400 group-hover:text-primary-400 transition-colors">
+                          {social.icon}
+                        </div>
+                        <span className="text-sm font-medium text-white">{social.name}</span>
+                      </motion.a>
+                    ))}
+                  </div>
+                </div>
+              </TiltCard>
             </motion.div>
 
             {/* Profile Card - Sebelah KANAN */}
-            <motion.div variants={itemVariants} className="flex justify-center md:justify-end">
+            <motion.div variants={itemVariants} className="flex items-center justify-center md:justify-end">
               <ProfileCard />
             </motion.div>
           </motion.div>
