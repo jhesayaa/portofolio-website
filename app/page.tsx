@@ -2,12 +2,12 @@ import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import About from '@/components/About';
 import Skills from '@/components/Skills';
-import BentoGrid from '@/components/BentoGrid';
-import Contact from '@/components/Contact';
 import ParticlesBackground from '@/components/ParticlesBackground';
 import TextReveal from '@/components/TextReveal';
 import ParallaxSection from '@/components/ParallaxSection';
 import ProfileCard from '@/components/ProfileCard';
+import Projects from '@/components/Project';
+import Experience from '@/components/Experience'; 
 
 export default function Home() {
   return (
@@ -21,8 +21,8 @@ export default function Home() {
         <Hero />
         <About />
         <Skills />
-        <BentoGrid />
-        <Contact />
+        <Projects />
+        <Experience />
       </div>
     </main>
   );

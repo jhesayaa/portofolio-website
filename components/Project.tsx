@@ -3,7 +3,10 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { ExternalLink, Github } from 'lucide-react';
+import { ExternalLink, Github, Lock, CheckCircle, Clock } from 'lucide-react';
+import Image from 'next/image';
+import TiltCard from './TiltCard';
+import ScrambleText from './ScrambleText';
 
 const Projects = () => {
   const ref = useRef(null);
@@ -11,67 +14,104 @@ const Projects = () => {
 
   const projects = [
     {
-      title: 'E-Commerce Platform',
-      description:
-        'A full-stack e-commerce platform with payment integration, user authentication, and admin dashboard. Built with Next.js and PostgreSQL.',
-      image: '/api/placeholder/600/400',
+      title: 'MuslimDailyLife.org',
+      description: 'Islamic lifestyle platform with daily prayers, Quran readings, and religious guidance',
+      tags: ['Next.js', 'TypeScript', 'Tailwind CSS', 'API'],
+      demo: 'https://muslimdailylife.org',
+      image: '/projects/muslimdailylife.jpg',
+      size: 'medium',
+      status: 'live',
+    },
+    {
+      title: 'Padelfy',
+      description: 'Sports booking platform for padel courts with real-time availability',
       tags: ['Next.js', 'TypeScript', 'PostgreSQL', 'Stripe'],
-      github: 'https://github.com',
-      demo: 'https://demo.com',
+      image: '/projects/padelfy.jpg',
+      size: 'small',
+      status: 'progress',
+      isPrivate: true,
+     
     },
     {
-      title: 'Task Management App',
-      description:
-        'A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.',
-      image: '/api/placeholder/600/400',
-      tags: ['React', 'Node.js', 'MongoDB', 'Socket.io'],
-      github: 'https://github.com',
-      demo: 'https://demo.com',
+      title: 'Portfolio Website',
+      description: 'Modern portfolio with stunning animations and interactive elements',
+      tags: ['Next.js', 'TypeScript', 'Framer Motion', 'React Bits'],
+      demo: '#',
+      github: 'https://github.com/yourusername/portfolio',
+      image: '/projects/portfolio.jpg',
+      size: 'small',
+      status: 'current',
     },
     {
-      title: 'Social Media Dashboard',
-      description:
-        'Analytics dashboard for social media metrics with beautiful data visualizations, export features, and scheduled reporting.',
-      image: '/api/placeholder/600/400',
-      tags: ['React', 'Chart.js', 'Express', 'REST API'],
-      github: 'https://github.com',
-      demo: 'https://demo.com',
+      title: 'Kasir App',
+      description: 'POS application with inventory management and sales reporting',
+      tags: ['React', 'Node.js', 'MySQL', 'Express'],
+      image: '/projects/kasir.jpg',
+      size: 'small',
+      status: 'progress',
+      isPrivate: true,
     },
     {
-      title: 'Weather Forecast App',
-      description:
-        'Real-time weather application with location-based forecasts, interactive maps, and weather alerts. Clean and intuitive UI.',
-      image: '/api/placeholder/600/400',
-      tags: ['Next.js', 'Tailwind', 'Weather API', 'Mapbox'],
-      github: 'https://github.com',
-      demo: 'https://demo.com',
+      title: 'Aurora Photo Studio',
+      description: 'Photography studio website with portfolio gallery and booking system',
+      tags: ['Next.js', 'Tailwind CSS', 'Supabase'],
+      github: 'https://github.com/yourusername/aurora-studio',
+      image: '/projects/aurora.jpg',
+      size: 'small',
+      status: 'completed',
     },
     {
-      title: 'Portfolio CMS',
-      description:
-        'Content management system for portfolios with drag-and-drop builder, template system, and SEO optimization features.',
-      image: '/api/placeholder/600/400',
-      tags: ['React', 'Node.js', 'MongoDB', 'AWS S3'],
-      github: 'https://github.com',
-      demo: 'https://demo.com',
+      title: 'Viqiqa Cake',
+      description: 'E-commerce platform for local bakery with product catalog and orders',
+      tags: ['React', 'Node.js', 'MongoDB', 'Express'],
+      github: 'https://github.com/yourusername/viqiqa-cake',
+      image: '/projects/viqiqa.jpg',
+      size: 'medium',
+      status: 'completed',
+
     },
     {
-      title: 'AI Chat Assistant',
-      description:
-        'Intelligent chatbot with natural language processing, context awareness, and integration with multiple platforms.',
-      image: '/api/placeholder/600/400',
-      tags: ['Python', 'TensorFlow', 'React', 'FastAPI'],
-      github: 'https://github.com',
-      demo: 'https://demo.com',
+      title: 'PT Adisaras Barokah',
+      description: 'Corporate admin system for company operations',
+      tags: ['Laravel', 'PHP', 'PostgreSQL', 'Tailwind CSS'],
+      image: '/projects/adisaras.jpg',
+      size: 'medium',
+      status: 'completed',
+    },
+    {
+      title: 'BMBerdaya',
+      description: 'Community empowerment platform admin panel',
+      tags: ['Laravel', 'PHP', 'MySQL', 'Bootstrap'],
+      image: '/projects/bmberdaya.jpg',
+      size: 'small',
+      status: 'completed',
+    },
+    {
+      title: 'Tiara Tani',
+      description: 'Agricultural management dashboard for tracking crops and farmer data',
+      tags: ['Laravel', 'PHP', 'MySQL', 'Bootstrap'],
+      image: '/projects/tiara-tani.jpg',
+      size: 'small',
+      status: 'completed',
     },
   ];
+
+  const getStatusBadge = (status: string) => {
+    const badges = {
+      live: { icon: <CheckCircle className="w-3 h-3" />, text: 'Live', color: 'bg-green-500/20 text-green-400 border-green-500/30' },
+      progress: { icon: <Clock className="w-3 h-3" />, text: 'In Progress', color: 'bg-yellow-500/20 text-yellow-400 border-yellow-500/30' },
+      completed: { icon: <CheckCircle className="w-3 h-3" />, text: 'Completed', color: 'bg-blue-500/20 text-blue-400 border-blue-500/30' },
+      current: { icon: <CheckCircle className="w-3 h-3" />, text: 'Current', color: 'bg-purple-500/20 text-purple-400 border-purple-500/30' },
+    };
+    return badges[status as keyof typeof badges];
+  };
 
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
+        staggerChildren: 0.1,
       },
     },
   };
@@ -86,95 +126,134 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects" className="py-20 relative" ref={ref}>
+    <section id="projects" className="py-20 relative overflow-hidden" ref={ref}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
         <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate={isInView ? 'visible' : 'hidden'}
-          className="text-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          className="text-center mb-12"
         >
-          <motion.h2
-            variants={itemVariants}
-            className="text-4xl sm:text-5xl font-bold mb-4"
-          >
-            Featured <span className="gradient-text">Projects</span>
-          </motion.h2>
-          <motion.div
-            variants={itemVariants}
-            className="w-20 h-1 bg-gradient-to-r from-primary-600 to-pink-600 mx-auto"
-          ></motion.div>
+          <div className="relative inline-block mb-4">
+            <div className="absolute inset-0 border-2 border-primary-500/40 rounded-xl blur-sm" />
+            <div className="absolute inset-0 border border-primary-500/60 rounded-xl" />
+            <h2 className="relative text-4xl sm:text-5xl font-bold px-8 py-4">
+              <ScrambleText className="text-primary">Featured</ScrambleText> <ScrambleText className="gradient-text">Projects</ScrambleText>
+            </h2>
+          </div>
+          <p className="text-gray-400 text-lg max-w-3xl mx-auto leading-relaxed">
+            A showcase of my work ranging from live production applications to ongoing developments
+          </p>
         </motion.div>
 
+        {/* Bento Grid */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? 'visible' : 'hidden'}
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 auto-rows-fr"
         >
-          {projects.map((project, index) => (
-            <motion.div
-              key={index}
-              variants={itemVariants}
-              whileHover={{ y: -10 }}
-              className="glass rounded-xl overflow-hidden group cursor-pointer"
-            >
-              {/* Project Image */}
-              <div className="relative h-48 bg-gradient-to-br from-primary-900/50 to-pink-900/50 overflow-hidden">
-                <div className="absolute inset-0 bg-black/50 group-hover:bg-black/30 transition-all duration-300"></div>
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-6xl font-bold text-white/10">
-                    {index + 1}
+          {projects.map((project, index) => {
+            const gridClass =
+              project.size === 'large'
+                ? 'md:col-span-2 md:row-span-2'
+                : project.size === 'medium'
+                ? 'md:col-span-2'
+                : 'md:col-span-1';
+
+            const badge = getStatusBadge(project.status);
+
+            return (
+              <motion.div key={index} variants={itemVariants} className={gridClass}>
+                <TiltCard className="h-full">
+                  <div className="h-full glass rounded-2xl overflow-hidden group hover:border-primary-500 transition-all duration-300 relative">
+                    {/* Project Image */}
+                    <div className="relative h-48 overflow-hidden">
+                      <Image
+                        src={project.image}
+                        alt={project.title}
+                        fill
+                        className="object-cover group-hover:scale-110 transition-transform duration-500"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
+                      
+                      {/* Status Badge on Image */}
+                      <div className={`absolute top-4 right-4 px-2 py-1 rounded-full border ${badge.color} flex items-center gap-1 text-xs font-medium backdrop-blur-md z-10`}>
+                        {badge.icon}
+                        {badge.text}
+                      </div>
+
+                      {/* Number badge */}
+                      <div className="absolute bottom-4 left-4 text-6xl font-bold text-white/20 z-10">
+                        {index + 1}
+                      </div>
+                    </div>
+
+                    {/* Content */}
+                    <div className="p-6 flex flex-col justify-between flex-1">
+                      <div>
+                        <h3 className="text-xl font-bold mb-3 text-white group-hover:gradient-text transition-all duration-300">
+                          {project.title}
+                        </h3>
+                        <p className="text-gray-400 text-sm mb-4">
+                          {project.description}
+                        </p>
+
+                        {/* Tags */}
+                        <div className="flex flex-wrap gap-2 mb-4">
+                          {project.tags.map((tag, tagIndex) => (
+                            <span
+                              key={tagIndex}
+                              className="px-2 py-1 text-xs bg-white/5 text-gray-300 rounded-full border border-white/10"
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Links */}
+                      <div className="flex gap-3">
+                        {project.demo && (
+                          <a
+                            href={project.demo}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-2 px-3 py-2 rounded-lg bg-gradient-to-r from-primary-600 to-pink-600 text-white text-xs font-medium hover:shadow-lg hover:shadow-primary-600/50 transition-all duration-300"
+                          >
+                            <ExternalLink className="w-3 h-3" />
+                            Demo
+                          </a>
+                        )}
+                        {project.github && !project.isPrivate && (
+                          <a
+                            href={project.github}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-2 px-3 py-2 rounded-lg bg-white/5 text-white text-xs font-medium hover:bg-white/10 border border-white/10 transition-all duration-300"
+                          >
+                            <Github className="w-3 h-3" />
+                            Code
+                          </a>
+                        )}
+                        {project.isPrivate && (
+                          <div className="flex items-center gap-2 px-3 py-2 rounded-lg bg-white/5 text-gray-400 text-xs font-medium border border-white/10">
+                            <Lock className="w-3 h-3" />
+                            Private
+                          </div>
+                        )}
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-
-              {/* Project Info */}
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-2 text-white group-hover:text-primary-400 transition-colors">
-                  {project.title}
-                </h3>
-                <p className="text-gray-400 text-sm mb-4 line-clamp-3">
-                  {project.description}
-                </p>
-
-                {/* Tags */}
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tags.map((tag, tagIndex) => (
-                    <span
-                      key={tagIndex}
-                      className="px-3 py-1 text-xs bg-primary-600/20 text-primary-300 rounded-full border border-primary-600/30"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                {/* Links */}
-                <div className="flex space-x-4">
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center space-x-2 text-gray-400 hover:text-primary-400 transition-colors"
-                  >
-                    <Github className="w-5 h-5" />
-                    <span className="text-sm">Code</span>
-                  </a>
-                  <a
-                    href={project.demo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center space-x-2 text-gray-400 hover:text-primary-400 transition-colors"
-                  >
-                    <ExternalLink className="w-5 h-5" />
-                    <span className="text-sm">Demo</span>
-                  </a>
-                </div>
-              </div>
-            </motion.div>
-          ))}
+                </TiltCard>
+              </motion.div>
+            );
+          })}
         </motion.div>
+
+        {/* Decorative elements */}
+        <div className="absolute top-20 left-10 w-32 h-32 bg-primary-500/10 rounded-full filter blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-10 w-32 h-32 bg-pink-500/10 rounded-full filter blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
       </div>
     </section>
   );
