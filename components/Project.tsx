@@ -14,9 +14,9 @@ const Projects = () => {
 
   const projects = [
     {
-      title: 'MuslimDailyLife.org',
+      title: 'MuslimDailyLife',
       description: 'Islamic lifestyle platform with daily prayers, Quran readings, and religious guidance',
-      tags: ['Next.js', 'TypeScript', 'Tailwind CSS', 'API'],
+      tags: ['Laravel', 'PHP', 'Blade', 'Tailwind CSS', 'API'],
       demo: 'https://muslimdailylife.org',
       image: '/projects/muslimdailylife.jpg',
       size: 'medium',
@@ -25,7 +25,7 @@ const Projects = () => {
     {
       title: 'Padelfy',
       description: 'Sports booking platform for padel courts with real-time availability',
-      tags: ['Next.js', 'TypeScript', 'PostgreSQL', 'Stripe'],
+      tags: ['Vite', 'Node.js', 'TypeScript', 'Supabase', 'JWT', 'Midtrans', 'OpenAPI', 'Postgres'],
       image: '/projects/padelfy.jpg',
       size: 'small',
       status: 'progress',
@@ -35,9 +35,9 @@ const Projects = () => {
     {
       title: 'Portfolio Website',
       description: 'Modern portfolio with stunning animations and interactive elements',
-      tags: ['Next.js', 'TypeScript', 'Framer Motion', 'React Bits'],
+      tags: ['Next.js', 'TypeScript', 'Framer Motion'],
       demo: '#',
-      github: 'https://github.com/yourusername/portfolio',
+      github: 'https://github.com/jhesayaa/portofolio-website',
       image: '/projects/portfolio.jpg',
       size: 'small',
       status: 'current',
@@ -45,11 +45,20 @@ const Projects = () => {
     {
       title: 'Kasir App',
       description: 'POS application with inventory management and sales reporting',
-      tags: ['React', 'Node.js', 'MySQL', 'Express'],
+      tags: ['Laravel', 'PHP', 'Blade', 'Sqlite', 'Electron', 'Bootstrap'],
       image: '/projects/kasir.jpg',
-      size: 'small',
+      size: 'medium',
       status: 'progress',
       isPrivate: true,
+    },
+    {
+      title: 'E-Commerce Viqiqa Cake',
+      description: 'E-commerce platform for local bakery with product catalog and orders',
+      tags: ['Laravel', 'PHP', 'HeidiSQL', 'Filament', 'Blade', 'TailwindCSS'],
+      github: 'https://github.com/yourusername/viqiqa-cake',
+      image: '/projects/viqiqa.jpg',
+      size: 'medium',
+      status: 'completed',
     },
     {
       title: 'Aurora Photo Studio',
@@ -59,15 +68,7 @@ const Projects = () => {
       image: '/projects/aurora.jpg',
       size: 'small',
       status: 'completed',
-    },
-    {
-      title: 'Viqiqa Cake',
-      description: 'E-commerce platform for local bakery with product catalog and orders',
-      tags: ['React', 'Node.js', 'MongoDB', 'Express'],
-      github: 'https://github.com/yourusername/viqiqa-cake',
-      image: '/projects/viqiqa.jpg',
-      size: 'medium',
-      status: 'completed',
+
 
     },
     {
@@ -75,8 +76,9 @@ const Projects = () => {
       description: 'Corporate admin system for company operations',
       tags: ['Laravel', 'PHP', 'PostgreSQL', 'Tailwind CSS'],
       image: '/projects/adisaras.jpg',
-      size: 'medium',
+      size: 'small',
       status: 'completed',
+      isPrivate: true,
     },
     {
       title: 'BMBerdaya',
@@ -85,6 +87,7 @@ const Projects = () => {
       image: '/projects/bmberdaya.jpg',
       size: 'small',
       status: 'completed',
+      isPrivate: true,
     },
     {
       title: 'Tiara Tani',
@@ -93,6 +96,7 @@ const Projects = () => {
       image: '/projects/tiara-tani.jpg',
       size: 'small',
       status: 'completed',
+      isPrivate: true,
     },
   ];
 
