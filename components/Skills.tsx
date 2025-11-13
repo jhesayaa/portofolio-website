@@ -36,7 +36,10 @@ import {
   SiFramer,
   SiScikitlearn,
   SiPandas,
-  SiNumpy
+  SiSqlite,
+  SiFilament,
+  SiNumpy,
+  SiPhpmyadmin
 } from 'react-icons/si';
 import { VscCode } from 'react-icons/vsc';
 import { TbApi, TbDatabase } from 'react-icons/tb';
@@ -45,53 +48,75 @@ const Skills = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
-  const skillItems = [
-  // Frontend - Blue/Cyan
-  { icon: <SiReact size={24} />, color: 'cyan', label: 'React' },
-  { icon: <SiNextdotjs size={24} />, color: 'primary', label: 'Next.js' },
-  { icon: <SiTypescript size={24} />, color: 'blue', label: 'TypeScript' },
-  { icon: <SiJavascript size={24} />, color: 'orange', label: 'JavaScript' },
-  { icon: <SiHtml5 size={24} />, color: 'orange', label: 'HTML5' },
-  { icon: <SiCss3 size={24} />, color: 'blue', label: 'CSS3' },
-  { icon: <SiTailwindcss size={24} />, color: 'cyan', label: 'Tailwind CSS' },
-  { icon: <SiBootstrap size={24} />, color: 'purple', label: 'Bootstrap' },
-  { icon: <SiSass size={24} />, color: 'pink', label: 'SCSS' },
-  { icon: <SiAngular size={24} />, color: 'primary', label: 'Angular' },
-  { icon: <SiFramer size={24} />, color: 'purple', label: 'Framer Motion' },
-  
-  // Backend & Languages - Green/Purple
-  { icon: <SiNodedotjs size={24} />, color: 'green', label: 'Node.js' },
-  { icon: <SiExpress size={24} />, color: 'green', label: 'Express.js' },
-  { icon: <SiLaravel size={24} />, color: 'primary', label: 'Laravel' },
-  { icon: <SiPhp size={24} />, color: 'purple', label: 'PHP' },
-  { icon: <SiPython size={24} />, color: 'blue', label: 'Python' },
-  { icon: <SiFastapi size={24} />, color: 'green', label: 'FastAPI' },
-  { icon: <SiCplusplus size={24} />, color: 'blue', label: 'C++' },
-  
-  // Database - Blue/Green
-  { icon: <SiSupabase size={24} />, color: 'green', label: 'Supabase' },
-  { icon: <SiPostgresql size={24} />, color: 'blue', label: 'PostgreSQL' },
-  { icon: <SiMysql size={24} />, color: 'blue', label: 'MySQL' },
-  { icon: <SiMongodb size={24} />, color: 'green', label: 'MongoDB' },
-  { icon: <TbDatabase size={24} />, color: 'blue', label: 'HeidiSQL' },
-  { icon: <TbDatabase size={24} />, color: 'orange', label: 'phpMyAdmin' },
-  
-  // Tools & DevOps - Purple/Pink/Orange
-  { icon: <SiGit size={24} />, color: 'orange', label: 'Git' },
-  { icon: <SiGithub size={24} />, color: 'primary', label: 'GitHub' },
-  { icon: <SiDocker size={24} />, color: 'blue', label: 'Docker' },
-  { icon: <VscCode size={24} />, color: 'blue', label: 'VS Code' },
-  { icon: <SiFigma size={24} />, color: 'pink', label: 'Figma' },
-  { icon: <SiPostman size={24} />, color: 'orange', label: 'Postman' },
-  
-  // Data Science - Blue/Orange
-  { icon: <SiScikitlearn size={24} />, color: 'orange', label: 'Scikit-learn' },
-  { icon: <SiPandas size={24} />, color: 'blue', label: 'Pandas' },
-  { icon: <SiNumpy size={24} />, color: 'cyan', label: 'NumPy' },
-  
-  // API
-  { icon: <TbApi size={24} />, color: 'orange', label: 'REST API' },
-];
+  // Categorized Skills
+  const skillCategories = [
+    {
+      title: 'Frontend Development',
+      color: 'from-cyan-500 to-blue-500',
+      skills: [
+        { icon: <SiReact size={24} />, color: 'cyan', label: 'React' },
+        { icon: <SiNextdotjs size={24} />, color: 'primary', label: 'Next.js' },
+        { icon: <SiTypescript size={24} />, color: 'blue', label: 'TypeScript' },
+        { icon: <SiJavascript size={24} />, color: 'orange', label: 'JavaScript' },
+        { icon: <SiHtml5 size={24} />, color: 'orange', label: 'HTML5' },
+        { icon: <SiCss3 size={24} />, color: 'blue', label: 'CSS3' },
+        { icon: <SiTailwindcss size={24} />, color: 'cyan', label: 'Tailwind CSS' },
+        { icon: <SiBootstrap size={24} />, color: 'purple', label: 'Bootstrap' },
+        { icon: <SiSass size={24} />, color: 'pink', label: 'SCSS' },
+        { icon: <SiAngular size={24} />, color: 'primary', label: 'Angular' },
+        { icon: <SiFramer size={24} />, color: 'purple', label: 'Framer Motion' },
+      ]
+    },
+    {
+      title: 'Backend Development',
+      color: 'from-green-500 to-emerald-500',
+      skills: [
+        { icon: <SiNodedotjs size={24} />, color: 'green', label: 'Node.js' },
+        { icon: <SiExpress size={24} />, color: 'green', label: 'Express.js' },
+        { icon: <SiLaravel size={24} />, color: 'primary', label: 'Laravel' },
+        { icon: <SiPhp size={24} />, color: 'purple', label: 'PHP' },
+        { icon: <SiPython size={24} />, color: 'blue', label: 'Python' },
+        { icon: <SiFastapi size={24} />, color: 'green', label: 'FastAPI' },
+        { icon: <SiCplusplus size={24} />, color: 'blue', label: 'C++' },
+        { icon: <SiFilament size={24} />, color: 'purple', label: 'Filament' },
+        { icon: <TbApi size={24} />, color: 'orange', label: 'REST API' },
+      ]
+    },
+    {
+      title: 'Database & Storage',
+      color: 'from-blue-500 to-indigo-500',
+      skills: [
+        { icon: <SiSupabase size={24} />, color: 'green', label: 'Supabase' },
+        { icon: <SiPostgresql size={24} />, color: 'blue', label: 'PostgreSQL' },
+        { icon: <SiMysql size={24} />, color: 'blue', label: 'MySQL' },
+        { icon: <SiMongodb size={24} />, color: 'green', label: 'MongoDB' },
+        { icon: <TbDatabase size={24} />, color: 'blue', label: 'HeidiSQL' },
+        { icon: <SiPhpmyadmin size={24} />, color: 'orange', label: 'phpMyAdmin' },
+        { icon: <SiSqlite size={24} />, color: 'orange', label: 'SQLite' },
+      ]
+    },
+    {
+      title: 'Tools & DevOps',
+      color: 'from-purple-500 to-pink-500',
+      skills: [
+        { icon: <SiGit size={24} />, color: 'orange', label: 'Git' },
+        { icon: <SiGithub size={24} />, color: 'primary', label: 'GitHub' },
+        { icon: <SiDocker size={24} />, color: 'blue', label: 'Docker' },
+        { icon: <VscCode size={24} />, color: 'blue', label: 'VS Code' },
+        { icon: <SiFigma size={24} />, color: 'pink', label: 'Figma' },
+        { icon: <SiPostman size={24} />, color: 'orange', label: 'Postman' },
+      ]
+    },
+    {
+      title: 'Data Science & ML',
+      color: 'from-orange-500 to-red-500',
+      skills: [
+        { icon: <SiScikitlearn size={24} />, color: 'orange', label: 'Scikit-learn' },
+        { icon: <SiPandas size={24} />, color: 'blue', label: 'Pandas' },
+        { icon: <SiNumpy size={24} />, color: 'cyan', label: 'NumPy' },
+      ]
+    },
+  ];
 
   // Logo Loop Items - Top (Frontend & Popular)
   const topLogoItems = [
@@ -119,7 +144,9 @@ const Skills = () => {
     { node: <SiFastapi className="text-[#009688]" size={40} />, title: "FastAPI" },
     { node: <SiSupabase className="text-[#3ECF8E]" size={40} />, title: "Supabase" },
     { node: <SiPostgresql className="text-[#4169E1]" size={40} />, title: "PostgreSQL" },
+    { node: <SiFilament className="text-[#898910]" size={40} />, title: "Filament" },
     { node: <SiMysql className="text-[#4479A1]" size={40} />, title: "MySQL" },
+    { node: <SiSqlite className="text-[#e5e6e3]" size={40} />, title: "SQLite" },
     { node: <SiMongodb className="text-[#47A248]" size={40} />, title: "MongoDB" },
     { node: <SiGit className="text-[#F05032]" size={40} />, title: "Git" },
     { node: <SiGithub className="text-white" size={40} />, title: "GitHub" },
@@ -132,7 +159,26 @@ const Skills = () => {
     { node: <SiNumpy className="text-[#013243]" size={40} />, title: "NumPy" },
   ];
 
-   return (
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+      },
+    },
+  };
+
+  const categoryVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6 },
+    },
+  };
+
+  return (
     <section id="skills" className="py-20 relative overflow-hidden" ref={ref}>
       <ParallaxSection speed={0.1}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -141,22 +187,18 @@ const Skills = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-8"
+            className="text-center mb-12"
           >
             <div className="relative inline-block mb-4">
-              {/* Border Background */}
               <div className="absolute inset-0 border-2 border-primary-500/40 rounded-xl blur-sm" />
               <div className="absolute inset-0 border border-primary-500/60 rounded-xl" />
-              
-              {/* Text with Scramble */}
               <h2 className="relative text-4xl sm:text-5xl font-bold px-8 py-4">
                 <ScrambleText>Skills & </ScrambleText>
                 <ScrambleText className="gradient-text">Expertise</ScrambleText>
               </h2>
             </div>
-            
             <p className="text-gray-400 text-lg max-w-3xl mx-auto leading-relaxed">
-              A comprehensive collection of languages, frameworks, and tools I leverage to build scalable, efficient, and innovative solutions throughout my development journey
+              A comprehensive collection of languages, frameworks, and tools I leverage to build scalable, efficient, and innovative solutions
             </p>
           </motion.div>
 
@@ -174,13 +216,32 @@ const Skills = () => {
             />
           </div>
 
-          {/* Glass Icons */}
+          {/* Categorized Skills */}
           <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            variants={containerVariants}
+            initial="hidden"
+            animate={isInView ? 'visible' : 'hidden'}
+            className="space-y-12"
           >
-            <GlassIcons items={skillItems} />
+            {skillCategories.map((category, categoryIndex) => (
+              <motion.div
+                key={categoryIndex}
+                variants={categoryVariants}
+                className="space-y-6"
+              >
+                {/* Category Header */}
+                <div className="flex items-center gap-4">
+                  <div className={`h-1 w-12 bg-gradient-to-r ${category.color} rounded-full`} />
+                  <h3 className="text-2xl font-bold text-white">
+                    {category.title}
+                  </h3>
+                  <div className={`h-1 flex-1 bg-gradient-to-r ${category.color} opacity-20 rounded-full`} />
+                </div>
+
+                {/* Category Icons */}
+                <GlassIcons items={category.skills} />
+              </motion.div>
+            ))}
           </motion.div>
 
           {/* Bottom Logo Loop */}

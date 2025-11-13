@@ -5,8 +5,8 @@ import { ArrowDown, Sparkles } from 'lucide-react';
 import MagneticButton from './MagneticButton';
 import RotatingText from './RotatingText';
 import GradientBlinds from './GradientBlinds';
+import FloatingIcons from './FloatingIcons';
 
-// Split Text Component (inline)
 const SplitText = ({ text, className = '', delay = 0 }: { text: string; className?: string; delay?: number }) => {
   const letters = text.split('');
 
@@ -75,7 +75,6 @@ const Hero = () => {
     },
   };
 
-  // Text untuk rotating
   const roles = [
     'Software Engineer',
     'Full Stack Developer',
@@ -85,14 +84,14 @@ const Hero = () => {
 
   const stats = [
     { value: '3', suffix: '+', label: 'Years Experience' },
-    { value: '25', suffix: '+', label: 'Projects Done' },
-    { value: '15', suffix: '+', label: 'Technologies' },
+    { value: '10', suffix: '+', label: 'Projects Done' },
+    { value: '20', suffix: '+', label: 'Technologies' },
   ];
 
   return (
     <section
         id="home"
-        className="min-h-screen flex items-center justify-center relative overflow-hidden pt-10"
+        className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16 sm:pt-20 pb-10"
     >
       {/* GradientBlinds Background */}
       <div className="absolute inset-0 w-full h-full pointer-events-auto">
@@ -113,6 +112,9 @@ const Hero = () => {
         />
       </div>
 
+      {/* Floating Tech Icons */}
+      <FloatingIcons />
+
       {/* Dark overlay untuk readability */}
       <div className="absolute inset-0 bg-gray-900/40 pointer-events-none" />
 
@@ -120,37 +122,39 @@ const Hero = () => {
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 mt-10 pointer-events-none"
+        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 w-full pointer-events-none"
       >
-        {/* Welcome Message */}
+        {/* Name - Jadi Header */}
         <motion.div 
           variants={itemVariants} 
-          className="mb-12"
+          className="mb-6 sm:mb-8 px-2"
         >
-          <div className="relative inline-block">
-            <h2 className="relative text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold">
-              <span className="inline-flex items-center gap-3">
+          <div className="relative inline-block max-w-full">
+            <h2 className="relative text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold break-words">
+              <span className="inline-flex items-center gap-2 sm:gap-3 flex-wrap justify-center">
                 <motion.span
                   animate={{ rotate: 360 }}
                   transition={{ duration: 3, repeat: Infinity, ease: 'linear' }}
+                  className="flex-shrink-0"
                 >
-                  <Sparkles className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-primary-400" />
+                  <Sparkles className="w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 text-primary-400" />
                 </motion.span>
-                <span className="gradient-text">
-                  <SplitText text="Welcome to my Portofolio" delay={0.5} />
+                <span className="gradient-text inline-block px-1">
+                  <SplitText text="Jhesaya Giovani Andromeda" delay={0.5} />
                 </span>
                 <motion.span
                   animate={{ rotate: -360 }}
                   transition={{ duration: 3, repeat: Infinity, ease: 'linear' }}
+                  className="flex-shrink-0"
                 >
-                  <Sparkles className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-pink-400" />
+                  <Sparkles className="w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 text-pink-400" />
                 </motion.span>
               </span>
             </h2>
 
             {/* Animated underline */}
             <motion.div
-              className="h-1 bg-gradient-to-r from-primary-600 via-pink-600 to-purple-600 rounded-full mt-4"
+              className="h-0.5 sm:h-1 bg-gradient-to-r from-primary-600 via-pink-600 to-purple-600 rounded-full mt-2 sm:mt-4 mx-auto"
               initial={{ width: 0 }}
               animate={{ width: '100%' }}
               transition={{ delay: 1.5, duration: 1 }}
@@ -158,23 +162,25 @@ const Hero = () => {
           </div>
         </motion.div>
 
-        {/* Main heading */}
-        <motion.div variants={itemVariants} className="mb-6">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-white">
-            Jhesaya Giovani Andromeda
-          </h1>
+        {/* Description - Dikecilkan */}
+        <motion.div variants={itemVariants} className="mb-4 sm:mb-6 max-w-3xl mx-auto px-4">
+          <p className="text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-gray-200 leading-relaxed">
+            A passionate <span className="text-primary-400 font-semibold">Full Stack Developer</span> and{' '}
+            <span className="text-pink-400 font-semibold">IT Student</span> at Dian Nuswantoro University, 
+            currently learning and building innovative web solutions with modern technologies.
+          </p>
         </motion.div>
 
         {/* Rotating Text for Role with Background */}
         <motion.div
         variants={itemVariants}
-        className="mb-8"
+        className="mb-6 sm:mb-8"
         >
-        <div className="inline-flex items-center justify-center gap-3 flex-wrap">
+        <div className="inline-flex items-center justify-center gap-3 flex-wrap px-2">
             {/* Rotating text with button background */}
-            <div className="relative inline-block min-w-[280px] sm:min-w-[350px] md:min-w-[400px]">
-            <div className="glass rounded-full px-6 py-3 border border-primary-500/30 bg-gradient-to-r from-primary-600/20 to-pink-600/20 backdrop-blur-sm">
-                <span className="text-primary-300 text-2xl sm:text-3xl md:text-4xl font-semibold">
+            <div className="relative inline-block w-full max-w-[280px] sm:max-w-[350px] md:max-w-[400px]">
+            <div className="glass rounded-full px-4 sm:px-6 py-2 sm:py-3 border border-primary-500/30 bg-gradient-to-r from-primary-600/20 to-pink-600/20 backdrop-blur-sm">
+                <span className="text-primary-300 text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold whitespace-nowrap overflow-hidden text-ellipsis block">
                 <RotatingText texts={roles} interval={2500} />
                 </span>
             </div>
@@ -188,22 +194,22 @@ const Hero = () => {
         {/* CTA Buttons */}
         <motion.div
           variants={itemVariants}
-          className="flex flex-wrap justify-center gap-4 pointer-events-auto"
+          className="flex flex-row flex-wrap justify-center gap-3 sm:gap-4 pointer-events-auto mb-10 sm:mb-16 px-4"
         >
           <MagneticButton
             href="#projects"
-            className="group relative px-8 py-4 rounded-full bg-gradient-to-r from-primary-600 to-pink-600 text-white font-medium transition-all duration-300 hover:shadow-2xl hover:shadow-primary-600/50 overflow-hidden"
+            className="group relative px-6 sm:px-8 py-3 sm:py-4 rounded-full bg-gradient-to-r from-primary-600 to-pink-600 text-white text-sm sm:text-base font-medium transition-all duration-300 hover:shadow-2xl hover:shadow-primary-600/50 overflow-hidden flex-1 min-w-[140px] max-w-[200px]"
           >
-            <span className="relative z-10 flex items-center gap-2">
+            <span className="relative z-10 flex items-center justify-center gap-2">
               View My Work
-              <ArrowDown className="w-5 h-5 group-hover:translate-y-1 transition-transform" />
+              <ArrowDown className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-y-1 transition-transform" />
             </span>
             <div className="absolute inset-0 bg-gradient-to-r from-pink-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           </MagneticButton>
 
           <MagneticButton
             href="#contact"
-            className="px-8 py-4 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 text-white font-medium hover:border-primary-500 hover:bg-white/10 transition-all duration-300"
+            className="px-6 sm:px-8 py-3 sm:py-4 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 text-white text-sm sm:text-base font-medium hover:border-primary-500 hover:bg-white/10 transition-all duration-300 flex-1 min-w-[140px] max-w-[180px]"
           >
             Get In Touch
           </MagneticButton>
@@ -212,17 +218,17 @@ const Hero = () => {
         {/* Animated Stats */}
         <motion.div
           variants={itemVariants}
-          className="mt-16 grid grid-cols-3 gap-8 max-w-2xl mx-auto"
+          className="grid grid-cols-3 gap-4 sm:gap-6 md:gap-8 max-w-2xl mx-auto px-4"
         >
           {stats.map((stat, index) => (
             <div
               key={index}
               className="text-center"
             >
-              <div className="text-3xl sm:text-4xl font-bold gradient-text mb-2">
+              <div className="text-2xl xs:text-3xl sm:text-4xl font-bold gradient-text mb-1 sm:mb-2">
                 {stat.value}{stat.suffix}
               </div>
-              <div className="text-sm text-gray-400">{stat.label}</div>
+              <div className="text-xs sm:text-sm text-gray-300">{stat.label}</div>
             </div>
           ))}
         </motion.div>
