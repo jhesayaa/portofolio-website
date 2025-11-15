@@ -25,15 +25,16 @@ const Experience = () => {
   const experiences: ExperienceItem[] = useMemo(() => [
     {
       company: 'JNE COUNTER MDA',
-      position: 'Self-Checkout Operator (SCO)',
+      position: 'Director and Self-Checkout Operator (SCO)',
       location: 'Semarang, Indonesia',
       period: 'Aug 2023 - Present',
       description: [
-        'Managing self-checkout operations and customer service',
-        'Handling package processing and logistics coordination',
-        'Ensuring smooth daily operations and customer satisfaction',
+        'Leading overall business operations and strategic planning as Director',
+        'Overseeing daily counter operations, staff management, and service quality standards',
+        'Managing package processing, logistics coordination, and customer relations',
+        'Implementing operational improvements to enhance efficiency and customer satisfaction',
       ],
-      technologies: ['Customer Service', 'Logistics', 'Operations'],
+      technologies: ['Operations Management', 'Logistics', 'Customer Service', 'Business Strategy'],
       type: 'work',
     },
     {
