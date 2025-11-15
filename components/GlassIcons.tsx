@@ -15,7 +15,6 @@ export interface GlassIconsProps {
 }
 
 const gradientMapping: Record<string, string> = {
-  // Portfolio theme gradients - Purple & Pink
   primary: 'linear-gradient(135deg, hsl(283, 90%, 60%), hsl(318, 90%, 60%))',
   secondary: 'linear-gradient(135deg, hsl(268, 90%, 60%), hsl(333, 90%, 60%))',
   accent: 'linear-gradient(135deg, hsl(253, 90%, 60%), hsl(308, 90%, 60%))',
@@ -38,12 +37,10 @@ const GlassIcons: React.FC<GlassIconsProps> = ({ items, className }) => {
   };
 
   const handleClick = (index: number) => {
-    // Toggle animation
     if (activeIndex === index) {
       setActiveIndex(null);
     } else {
       setActiveIndex(index);
-      // Auto hide after 2 seconds
       setTimeout(() => {
         setActiveIndex(null);
       }, 2000);
@@ -51,14 +48,12 @@ const GlassIcons: React.FC<GlassIconsProps> = ({ items, className }) => {
   };
 
   const handleMouseEnter = (index: number) => {
-    // Only on desktop (hover support)
     if (window.innerWidth >= 1024) {
       setActiveIndex(index);
     }
   };
 
   const handleMouseLeave = () => {
-    // Only on desktop
     if (window.innerWidth >= 1024) {
       setActiveIndex(null);
     }

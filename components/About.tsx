@@ -63,7 +63,6 @@ const About = () => {
   return (
     <section id="about" className="py-20 relative overflow-hidden" ref={ref}>
       <ParallaxSection speed={0.2}>
-        {/* Full Width Scroll Velocity */}
         <div className="mb-16 w-full">
           <ScrollVelocityFramer
             text="ABOUT ME"
@@ -76,8 +75,6 @@ const About = () => {
             className="gradient-text opacity-40"
           />
         </div>
-
-        {/* Content with padding */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             variants={containerVariants}
@@ -85,7 +82,6 @@ const About = () => {
             animate={isInView ? 'visible' : 'hidden'}
             className="grid md:grid-cols-2 gap-12 items-center mb-16"
           >
-            {/* Info Cards - Sebelah KIRI */}
             <motion.div variants={itemVariants} className="space-y-6">
               {/* Introduction Card */}
               <TiltCard>
@@ -107,8 +103,6 @@ const About = () => {
                   </ScrollReveal>
                 </div>
               </TiltCard>
-
-              {/* Education Card */}
               <TiltCard>
                 <div className="glass rounded-2xl p-6 border border-white/10 hover:border-primary-500 transition-all duration-300">
                   <div className="flex items-center gap-3 mb-4">
@@ -117,8 +111,6 @@ const About = () => {
                     </div>
                     <h3 className="text-2xl font-bold gradient-text">Education</h3> 
                   </div>
-                  
-                  {/* University Info */}
                   <div className="mb-4 p-4 bg-white/5 rounded-xl border border-white/5">
                     <div className="flex items-start gap-3 mb-2">
                       <GraduationCap className="w-5 h-5 text-primary-400 mt-1" />
@@ -133,8 +125,6 @@ const About = () => {
                       <span className="text-sm font-semibold text-white">GPA: -/4.0</span>
                     </div>
                   </div>
-
-                  {/* Current Stats */}
                   <div className="grid grid-cols-2 gap-3">
                     <div className="p-3 bg-gradient-to-br from-primary-600/20 to-pink-600/20 rounded-xl border border-primary-500/30 text-center">
                       <div className="text-2xl font-bold gradient-text">1st</div>
@@ -147,8 +137,6 @@ const About = () => {
                   </div>
                 </div>
               </TiltCard>
-
-              {/* Social Links Card */}
               <TiltCard>
                 <div className="glass rounded-2xl p-6 border border-white/10 hover:border-primary-500 transition-all duration-300">
                   <h3 className="text-xl font-bold gradient-text mb-4">Connect With Me</h3>
@@ -173,8 +161,6 @@ const About = () => {
                 </div>
               </TiltCard>
             </motion.div>
-
-            {/* Profile Card - Sebelah KANAN */}
             <motion.div variants={itemVariants} className="flex items-center justify-center md:justify-end">
               <ProfileCard />
             </motion.div>

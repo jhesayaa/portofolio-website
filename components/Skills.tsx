@@ -48,7 +48,6 @@ const Skills = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
-  // Categorized Skills
   const skillCategories = [
     {
       title: 'Frontend Development',
@@ -117,8 +116,6 @@ const Skills = () => {
       ]
     },
   ];
-
-  // Logo Loop Items - Top (Frontend & Popular)
   const topLogoItems = [
     { node: <SiReact className="text-[#61DAFB]" size={40} />, title: "React" },
     { node: <SiNextdotjs className="text-white" size={40} />, title: "Next.js" },
@@ -133,8 +130,6 @@ const Skills = () => {
     { node: <SiFramer className="text-[#0055FF]" size={40} />, title: "Framer Motion" },
     { node: <SiCplusplus className="text-[#00599C]" size={40} />, title: "C++" },
   ];
-
-  // Logo Loop Items - Bottom (Backend, DB, Tools)
   const bottomLogoItems = [
     { node: <SiNodedotjs className="text-[#339933]" size={40} />, title: "Node.js" },
     { node: <SiExpress className="text-white" size={40} />, title: "Express.js" },
@@ -201,8 +196,6 @@ const Skills = () => {
               A comprehensive collection of languages, frameworks, and tools I leverage to build scalable, efficient, and innovative solutions
             </p>
           </motion.div>
-
-          {/* Top Logo Loop */}
           <div className="mb-12 opacity-30">
             <LogoLoop
               logos={topLogoItems}
@@ -215,8 +208,6 @@ const Skills = () => {
               fadeOutColor="#000000"
             />
           </div>
-
-          {/* Categorized Skills */}
           <motion.div
             variants={containerVariants}
             initial="hidden"
@@ -229,7 +220,6 @@ const Skills = () => {
                 variants={categoryVariants}
                 className="space-y-6"
               >
-                {/* Category Header */}
                 <div className="flex items-center gap-4">
                   <div className={`h-1 w-12 bg-gradient-to-r ${category.color} rounded-full`} />
                   <h3 className="text-2xl font-bold text-white">
@@ -237,14 +227,10 @@ const Skills = () => {
                   </h3>
                   <div className={`h-1 flex-1 bg-gradient-to-r ${category.color} opacity-20 rounded-full`} />
                 </div>
-
-                {/* Category Icons */}
                 <GlassIcons items={category.skills} />
               </motion.div>
             ))}
           </motion.div>
-
-          {/* Bottom Logo Loop */}
           <div className="mt-12 opacity-30">
             <LogoLoop
               logos={bottomLogoItems}
@@ -257,8 +243,6 @@ const Skills = () => {
               fadeOutColor="#000000"
             />
           </div>
-
-          {/* Decorative elements */}
           <div className="absolute top-20 left-10 w-32 h-32 bg-blue-500/10 rounded-full filter blur-3xl animate-pulse"></div>
           <div className="absolute bottom-20 right-10 w-32 h-32 bg-purple-500/10 rounded-full filter blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
         </div>

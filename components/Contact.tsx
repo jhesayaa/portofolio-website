@@ -148,7 +148,6 @@ const Contact = () => {
     <section id="contact" className="py-20 relative overflow-hidden" ref={ref}>
       <ParallaxSection speed={0.1}>
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Header */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
@@ -173,9 +172,7 @@ const Contact = () => {
             animate={isInView ? 'visible' : 'hidden'}
             className="grid lg:grid-cols-2 gap-12"
           >
-            {/* Contact Info & Social */}
             <motion.div variants={itemVariants} className="space-y-8">
-              {/* Contact Info Cards */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {contactInfo.map((info, index) => (
                   <motion.a
@@ -196,8 +193,6 @@ const Contact = () => {
                   </motion.a>
                 ))}
               </div>
-
-              {/* Social Links */}
               <div className="glass rounded-xl p-6">
                 <h3 className="text-xl font-bold text-white mb-4">Follow Me</h3>
                 <div className="flex gap-4">
@@ -216,16 +211,12 @@ const Contact = () => {
                   ))}
                 </div>
               </div>
-
-              {/* Decorative Quote */}
               <div className="glass rounded-xl p-6 border-l-4 border-primary-500">
                 <p className="text-gray-300 italic">
                   "Let's build something amazing together. Every great project starts with a conversation."
                 </p>
               </div>
             </motion.div>
-
-            {/* Contact Form */}
             <motion.div variants={itemVariants}>
               <form onSubmit={handleSubmit} className="glass rounded-2xl p-8 space-y-6">
                 <h3 className="text-2xl font-bold text-white mb-6">Send Message</h3>

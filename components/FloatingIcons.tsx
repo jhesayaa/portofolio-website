@@ -40,8 +40,6 @@ const FloatingIcons = () => {
     { Icon: SiDocker, color: '#2496ED', delay: 4, x: '50%', y: '10%' },
     { Icon: SiFigma, color: '#F24E1E', delay: 4.5, x: '50%', y: '90%' },
   ];
-
-  // Icon size based on screen size
   const iconSize = isMobile ? 28 : 48;
   const padding = isMobile ? 'p-1' : 'p-2';
 
@@ -50,7 +48,7 @@ const FloatingIcons = () => {
       {icons.map(({ Icon, color, delay, x, y }, index) => (
         <motion.div
           key={index}
-          className="absolute" // ← NO 'hidden sm:block'
+          className="absolute"
           style={{ 
             left: x, 
             top: y,

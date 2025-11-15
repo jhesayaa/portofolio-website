@@ -17,8 +17,6 @@ import {
 const LoadingScreen = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [progress, setProgress] = useState(0);
-
-  // Floating tech icons
   const floatingIcons = [
     { Icon: SiReact, color: '#61DAFB', x: '15%', y: '15%', delay: 0 },
     { Icon: SiNextdotjs, color: '#FFFFFF', x: '85%', y: '20%', delay: 0.5 },
@@ -31,7 +29,6 @@ const LoadingScreen = () => {
   ];
 
   useEffect(() => {
-    // Simulate loading progress
     const interval = setInterval(() => {
       setProgress((prev) => {
         if (prev >= 100) {
@@ -45,8 +42,6 @@ const LoadingScreen = () => {
 
     return () => clearInterval(interval);
   }, []);
-
-  // Split text animation
   const text = "WELCOME TO MY PORTFOLIO";
   const words = text.split(" ");
 
@@ -104,13 +99,10 @@ const LoadingScreen = () => {
           transition={{ duration: 0.5 }}
           className="fixed inset-0 z-[9999] flex items-center justify-center bg-black overflow-hidden"
         >
-          {/* Animated Background */}
           <div className="absolute inset-0 overflow-hidden">
             <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary-600/20 rounded-full filter blur-3xl animate-pulse"></div>
             <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-pink-600/20 rounded-full filter blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
           </div>
-
-          {/* Floating Tech Icons */}
           <div className="absolute inset-0 pointer-events-none">
             {floatingIcons.map(({ Icon, color, x, y, delay }, index) => (
               <motion.div
@@ -143,10 +135,7 @@ const LoadingScreen = () => {
               </motion.div>
             ))}
           </div>
-
-          {/* Content */}
           <div className="relative z-10 flex flex-col items-center gap-8 px-4 max-w-4xl mx-auto">
-            {/* Welcome Text with 3D Effect */}
             <motion.div
               variants={containerVariants}
               initial="hidden"
@@ -178,8 +167,6 @@ const LoadingScreen = () => {
                   </motion.div>
                 ))}
               </div>
-
-              {/* Animated Underline */}
               <motion.div
                 initial={{ width: 0 }}
                 animate={{ width: '100%' }}
@@ -187,8 +174,6 @@ const LoadingScreen = () => {
                 className="h-1 bg-gradient-to-r from-primary-600 via-pink-600 to-purple-600 rounded-full mt-4 mx-auto max-w-md"
               />
             </motion.div>
-
-            {/* Logo/Name with Spinning Effect */}
             <motion.div
               initial={{ opacity: 0, scale: 0 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -214,11 +199,8 @@ const LoadingScreen = () => {
                   </motion.div>
                 </div>
               </motion.div>
-              {/* Glow effect */}
               <div className="absolute inset-0 bg-gradient-to-br from-primary-600 to-pink-600 rounded-full blur-xl opacity-50" />
             </motion.div>
-
-            {/* Name */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -237,36 +219,27 @@ const LoadingScreen = () => {
                 Full Stack Developer & IT Student
               </motion.p>
             </motion.div>
-
-            {/* Progress Bar */}
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 1.8 }}
               className="w-64 sm:w-80"
             >
-              {/* Progress Container */}
               <div className="relative h-2 bg-white/10 rounded-full overflow-hidden backdrop-blur-sm">
-                {/* Progress Fill */}
                 <motion.div
                   className="absolute inset-y-0 left-0 bg-gradient-to-r from-primary-600 via-pink-600 to-purple-600 rounded-full"
                   initial={{ width: '0%' }}
                   animate={{ width: `${Math.min(progress, 100)}%` }}
                   transition={{ duration: 0.3, ease: 'easeOut' }}
                 >
-                  {/* Glow effect */}
                   <div className="absolute inset-0 bg-gradient-to-r from-primary-600 to-pink-600 blur-md opacity-50" />
                 </motion.div>
               </div>
-
-              {/* Percentage */}
               <div className="flex justify-between mt-2 text-xs text-gray-400">
                 <span>Loading Portfolio</span>
                 <span>{Math.round(progress)}%</span>
               </div>
             </motion.div>
-
-            {/* Loading Dots */}
             <div className="flex gap-2">
               {[0, 1, 2].map((i) => (
                 <motion.div

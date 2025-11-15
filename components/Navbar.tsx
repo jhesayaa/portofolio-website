@@ -22,8 +22,6 @@ const Navbar = () => {
     { name: 'Certificates', href: '#certificates', icon: <Award size={24} /> }, 
     { name: 'Contact', href: '#contact', icon: <Mail size={24} /> },
   ];
-
-  // Calculate indicator position based on actual element position
   const updateIndicatorPosition = (index: number) => {
     const targetElement = navRefs.current[index];
     const container = containerRef.current;
@@ -42,16 +40,13 @@ const Navbar = () => {
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
-      
-      // Auto-update active section based on scroll
+
       const sections = ['home', 'about', 'skills', 'projects', 'experience', 'certificates', 'contact'];
       const scrollPosition = window.scrollY + window.innerHeight / 2; // ← Better detection
       
-      // Check if we're at the bottom of the page
       const isAtBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 100;
       
       if (isAtBottom) {
-        // Force set to last section (Contact) when at bottom
         setActiveIndex(sections.length - 1);
         updateIndicatorPosition(sections.length - 1);
         return;
@@ -73,11 +68,9 @@ const Navbar = () => {
     
     window.addEventListener('scroll', handleScroll);
     window.addEventListener('resize', () => updateIndicatorPosition(activeIndex));
-    
-    // Initial position
+
     updateIndicatorPosition(0);
-    
-    // Trigger initial check
+
     handleScroll();
     
     return () => {
@@ -86,7 +79,6 @@ const Navbar = () => {
     };
   }, [activeIndex]);
 
-  // Update indicator on hover
   useEffect(() => {
     if (hoveredIndex !== null) {
       updateIndicatorPosition(hoveredIndex);
@@ -115,12 +107,10 @@ const Navbar = () => {
             : '0 8px 32px 0 rgba(124, 58, 237, 0.2), inset 0 1px 0 0 rgba(255, 255, 255, 0.1)',
         }}
       >
-        {/* Gooey Blob Background */}
         <div 
           className="absolute inset-0 rounded-2xl sm:rounded-3xl overflow-hidden pointer-events-none"
           style={{ filter: 'url(#gooey)' }}
         >
-          {/* Outer glow */}
           <motion.div
             className="absolute top-1/2 -translate-y-1/2 h-12 sm:h-14 rounded-xl sm:rounded-2xl"
             animate={{
@@ -136,8 +126,6 @@ const Navbar = () => {
               background: 'radial-gradient(circle, rgba(124, 58, 237, 0.4) 0%, transparent 70%)',
             }}
           />
-
-          {/* Main indicator */}
           <motion.div
             className="absolute top-1/2 -translate-y-1/2 h-10 sm:h-12 rounded-xl sm:rounded-2xl"
             animate={{
@@ -155,8 +143,6 @@ const Navbar = () => {
             }}
           />
         </div>
-
-        {/* Nav Items */}
         {navItems.map((item, index) => (
           <motion.a
             key={item.name}
@@ -190,21 +176,17 @@ const Navbar = () => {
             >
               {item.icon}
             </div>
-
-            {/* Tooltip - MacOS Style */}
             <div className="absolute -bottom-14 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none">
               <div className="relative">
                 <div className="bg-gray-900/95 backdrop-blur-xl text-white text-xs font-medium px-3 py-2 rounded-lg whitespace-nowrap border border-white/10 shadow-xl">
                   {item.name}
                 </div>
-                {/* Arrow */}
                 <div className="absolute -top-1 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-gray-900/95 border-l border-t border-white/10 rotate-45" />
               </div>
             </div>
           </motion.a>
         ))}
 
-        {/* Separator dots - MacOS style */}
         <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 flex gap-1">
           {navItems.map((_, index) => (
             <motion.div
@@ -221,8 +203,6 @@ const Navbar = () => {
           ))}
         </div>
       </div>
-
-      {/* SVG Filter for Gooey Effect */}
       <svg style={{ position: 'absolute', width: 0, height: 0 }}>
         <defs>
           <filter id="gooey">

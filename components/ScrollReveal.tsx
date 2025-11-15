@@ -60,7 +60,7 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
         scrollTrigger: {
         trigger: el,
         scroller,
-        start: 'top bottom+=100px', // ← Tambah offset agar mulai lebih awal
+        start: 'top bottom+=100px', 
         end: 'top center',
         scrub: true
         }
@@ -79,7 +79,7 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
         scrollTrigger: {
         trigger: el,
         scroller,
-        start: 'top bottom+=100px', // ← Tambah offset
+        start: 'top bottom+=100px',
         end: 'top center',
         scrub: true
         }
@@ -97,7 +97,7 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
         scrollTrigger: {
             trigger: el,
             scroller,
-            start: 'top bottom+=100px', // ← Tambah offset
+            start: 'top bottom+=100px',
             end: 'top center',
             scrub: true
         }

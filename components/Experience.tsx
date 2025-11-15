@@ -1,7 +1,7 @@
 'use client';
 
 import { motion, useInView } from 'framer-motion';
-import { useRef, useMemo } from 'react'; // ← Tambah useMemo
+import { useRef, useMemo } from 'react';
 import { Briefcase, Calendar, MapPin } from 'lucide-react';
 import ParallaxSection from './ParallaxSection';
 import ScrambleText from './ScrambleText';
@@ -142,7 +142,6 @@ const Experience = () => {
     <section id="experience" className="py-20 relative overflow-hidden" ref={ref}>
       <ParallaxSection speed={0.1}>
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Header */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
@@ -160,15 +159,12 @@ const Experience = () => {
               My professional journey from operations to entrepreneurship and development
             </p>
           </motion.div>
-
-          {/* Timeline Alternating */}
           <motion.div
             variants={containerVariants}
             initial="hidden"
             animate={isInView ? 'visible' : 'hidden'}
             className="relative"
           >
-            {/* Center Line */}
             <div className="absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary-600 via-pink-600 to-transparent hidden lg:block" />
 
             {experiences.map((exp, index) => {
@@ -182,10 +178,7 @@ const Experience = () => {
                     isLeft ? 'lg:pr-[50%] lg:pl-0' : 'lg:pl-[50%] lg:pr-0'
                   }`}
                 >
-                  {/* Timeline Dot */}
                   <div className="absolute left-1/2 transform -translate-x-1/2 top-6 w-4 h-4 rounded-full bg-gradient-to-br from-primary-600 to-pink-600 border-4 border-black hidden lg:block z-10" />
-
-                  {/* Content Card with Electric Border */}
                   <div className={isLeft ? 'lg:mr-8' : 'lg:ml-8'}>
                     <ElectricBorder
                       color={getElectricBorderColor(exp.type)}
@@ -221,8 +214,6 @@ const Experience = () => {
                             {getTypeLabel(exp.type)}
                           </span>
                         </div>
-
-                        {/* Description */}
                         <ul className="space-y-2 mb-4">
                           {exp.description.map((item, i) => (
                             <li key={i} className="text-gray-400 text-sm flex items-start gap-2">
@@ -231,8 +222,6 @@ const Experience = () => {
                             </li>
                           ))}
                         </ul>
-
-                        {/* Technologies */}
                         <div className="flex flex-wrap gap-2">
                           {exp.technologies.map((tech, i) => (
                             <span
@@ -250,8 +239,6 @@ const Experience = () => {
               );
             })}
           </motion.div>
-
-          {/* Decorative elements */}
           <div className="absolute top-20 right-10 w-32 h-32 bg-primary-500/10 rounded-full filter blur-3xl animate-pulse"></div>
           <div className="absolute bottom-20 left-10 w-32 h-32 bg-pink-500/10 rounded-full filter blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
         </div>

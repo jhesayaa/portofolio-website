@@ -93,7 +93,6 @@ const Hero = () => {
         id="home"
         className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16 sm:pt-20 pb-10"
     >
-      {/* GradientBlinds Background */}
       <div className="absolute inset-0 w-full h-full pointer-events-auto">
         <GradientBlinds
           gradientColors={['#7C3AED', '#EC4899', '#8B5CF6', '#06B6D4']}
@@ -111,11 +110,7 @@ const Hero = () => {
           mirrorGradient={false}
         />
       </div>
-
-      {/* Floating Tech Icons */}
       <FloatingIcons />
-
-      {/* Dark overlay untuk readability */}
       <div className="absolute inset-0 bg-gray-900/40 pointer-events-none" />
 
       <motion.div
@@ -124,7 +119,6 @@ const Hero = () => {
         animate="visible"
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 w-full pointer-events-none"
       >
-        {/* Name - Jadi Header */}
         <motion.div 
           variants={itemVariants} 
           className="mb-6 sm:mb-8 px-2"
@@ -151,8 +145,6 @@ const Hero = () => {
                 </motion.span>
               </span>
             </h2>
-
-            {/* Animated underline */}
             <motion.div
               className="h-0.5 sm:h-1 bg-gradient-to-r from-primary-600 via-pink-600 to-purple-600 rounded-full mt-2 sm:mt-4 mx-auto"
               initial={{ width: 0 }}
@@ -161,8 +153,6 @@ const Hero = () => {
             />
           </div>
         </motion.div>
-
-        {/* Description - Dikecilkan */}
         <motion.div variants={itemVariants} className="mb-4 sm:mb-6 max-w-3xl mx-auto px-4">
           <p className="text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-gray-200 leading-relaxed">
             A passionate <span className="text-primary-400 font-semibold">Full Stack Developer</span> and{' '}
@@ -170,28 +160,21 @@ const Hero = () => {
             currently learning and building innovative web solutions with modern technologies.
           </p>
         </motion.div>
-
-        {/* Rotating Text for Role with Background */}
         <motion.div
         variants={itemVariants}
         className="mb-6 sm:mb-8"
         >
         <div className="inline-flex items-center justify-center gap-3 flex-wrap px-2">
-            {/* Rotating text with button background */}
             <div className="relative inline-block w-full max-w-[280px] sm:max-w-[350px] md:max-w-[400px]">
             <div className="glass rounded-full px-4 sm:px-6 py-2 sm:py-3 border border-primary-500/30 bg-gradient-to-r from-primary-600/20 to-pink-600/20 backdrop-blur-sm">
                 <span className="text-primary-300 text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold whitespace-nowrap overflow-hidden text-ellipsis block">
                 <RotatingText texts={roles} interval={2500} />
                 </span>
             </div>
-            
-            {/* Optional: Glow effect */}
             <div className="absolute inset-0 bg-gradient-to-r from-primary-600 to-pink-600 rounded-full blur-xl opacity-30 -z-10" />
             </div>
         </div>
         </motion.div>
-
-        {/* CTA Buttons */}
         <motion.div
           variants={itemVariants}
           className="flex flex-row flex-wrap justify-center gap-3 sm:gap-4 pointer-events-auto mb-10 sm:mb-16 px-4"
@@ -214,8 +197,6 @@ const Hero = () => {
             Get In Touch
           </MagneticButton>
         </motion.div>
-
-        {/* Animated Stats */}
         <motion.div
           variants={itemVariants}
           className="grid grid-cols-3 gap-4 sm:gap-6 md:gap-8 max-w-2xl mx-auto px-4"

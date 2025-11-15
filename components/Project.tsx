@@ -132,7 +132,6 @@ const Projects = () => {
   return (
     <section id="projects" className="py-20 relative overflow-hidden" ref={ref}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -149,8 +148,6 @@ const Projects = () => {
             A showcase of my work ranging from live production applications to ongoing developments
           </p>
         </motion.div>
-
-        {/* Bento Grid */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -171,7 +168,6 @@ const Projects = () => {
               <motion.div key={index} variants={itemVariants} className={gridClass}>
                 <TiltCard className="h-full">
                   <div className="h-full glass rounded-2xl overflow-hidden group hover:border-primary-500 transition-all duration-300 relative">
-                    {/* Project Image */}
                     <div className="relative h-48 overflow-hidden">
                       <Image
                         src={project.image}
@@ -180,20 +176,14 @@ const Projects = () => {
                         className="object-cover group-hover:scale-110 transition-transform duration-500"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
-                      
-                      {/* Status Badge on Image */}
                       <div className={`absolute top-4 right-4 px-2 py-1 rounded-full border ${badge.color} flex items-center gap-1 text-xs font-medium backdrop-blur-md z-10`}>
                         {badge.icon}
                         {badge.text}
                       </div>
-
-                      {/* Number badge */}
                       <div className="absolute bottom-4 left-4 text-6xl font-bold text-white/20 z-10">
                         {index + 1}
                       </div>
                     </div>
-
-                    {/* Content */}
                     <div className="p-6 flex flex-col justify-between flex-1">
                       <div>
                         <h3 className="text-xl font-bold mb-3 text-white group-hover:gradient-text transition-all duration-300">
@@ -202,8 +192,6 @@ const Projects = () => {
                         <p className="text-gray-400 text-sm mb-4">
                           {project.description}
                         </p>
-
-                        {/* Tags */}
                         <div className="flex flex-wrap gap-2 mb-4">
                           {project.tags.map((tag, tagIndex) => (
                             <span
@@ -215,8 +203,6 @@ const Projects = () => {
                           ))}
                         </div>
                       </div>
-
-                      {/* Links */}
                       <div className="flex gap-3">
                         {project.demo && (
                           <a
@@ -254,8 +240,6 @@ const Projects = () => {
             );
           })}
         </motion.div>
-
-        {/* Decorative elements */}
         <div className="absolute top-20 left-10 w-32 h-32 bg-primary-500/10 rounded-full filter blur-3xl animate-pulse"></div>
         <div className="absolute bottom-20 right-10 w-32 h-32 bg-pink-500/10 rounded-full filter blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
       </div>

@@ -67,7 +67,6 @@ const Certificates = () => {
     <section id="certificates" className="py-20 relative overflow-hidden" ref={ref}>
       <ParallaxSection speed={0.1}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Header */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
@@ -86,15 +85,12 @@ const Certificates = () => {
               Professional certifications and courses completed to enhance my skills
             </p>
           </motion.div>
-
-          {/* Carousel Container - SMALLER */}
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
             transition={{ duration: 0.8 }}
             className="relative max-w-3xl mx-auto"
           >
-            {/* Main Image Carousel - SMALLER */}
             <div className="relative aspect-[4/3] rounded-2xl overflow-hidden glass border border-white/10">
               <AnimatePresence mode="wait">
                 <motion.div
@@ -119,8 +115,6 @@ const Certificates = () => {
                   )}
                 </motion.div>
               </AnimatePresence>
-
-              {/* Navigation Arrows - Only show if multiple */}
               {certificates.length > 1 && (
                 <>
                   <button
@@ -138,8 +132,6 @@ const Certificates = () => {
                   >
                     <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 text-white group-hover:translate-x-1 transition-transform" />
                   </button>
-
-                  {/* Counter */}
                   <div className="absolute top-2 sm:top-4 right-2 sm:right-4 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-black/50 backdrop-blur-sm border border-white/10">
                     <span className="text-white text-xs sm:text-sm font-medium">
                       {currentIndex + 1} / {certificates.length}
@@ -148,8 +140,6 @@ const Certificates = () => {
                 </>
               )}
             </div>
-
-            {/* Thumbnail Navigation - Only show if multiple */}
             {certificates.length > 1 && (
               <div className="mt-4 sm:mt-6 flex justify-center gap-2 sm:gap-3 flex-wrap">
                 {certificates.map((cert, index) => (
@@ -182,8 +172,6 @@ const Certificates = () => {
               </div>
             )}
           </motion.div>
-
-          {/* Decorative elements */}
           <div className="absolute top-20 left-10 w-32 h-32 bg-primary-500/10 rounded-full filter blur-3xl animate-pulse"></div>
           <div className="absolute bottom-20 right-10 w-32 h-32 bg-pink-500/10 rounded-full filter blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
         </div>

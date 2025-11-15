@@ -51,7 +51,6 @@ const Footer = () => {
     <footer className="relative bg-black border-t border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-          {/* Brand Section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -80,8 +79,6 @@ const Footer = () => {
               ))}
             </div>
           </motion.div>
-
-          {/* Quick Links */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -103,8 +100,6 @@ const Footer = () => {
               ))}
             </ul>
           </motion.div>
-
-          {/* Contact Info */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -135,22 +130,16 @@ const Footer = () => {
             </ul>
           </motion.div>
         </div>
-
-        {/* Divider */}
         <div className="border-t border-white/10 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            {/* Copyright */}
             <motion.p
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               className="text-gray-400 text-sm text-center md:text-left"
             >
-              © {currentYear} Jhesaya. Made with{' '}
-              <Heart className="w-4 h-4 inline text-red-500 fill-red-500" /> using Next.js & Tailwind CSS
+              © {currentYear} Jhesaya
             </motion.p>
-
-            {/* Back to Top Button */}
             <motion.button
               onClick={scrollToTop}
               whileHover={{ scale: 1.05 }}
@@ -163,8 +152,6 @@ const Footer = () => {
           </div>
         </div>
       </div>
-
-      {/* Decorative Gradient */}
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary-500 to-transparent opacity-50"></div>
     </footer>
   );

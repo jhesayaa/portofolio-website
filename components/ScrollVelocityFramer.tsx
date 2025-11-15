@@ -54,7 +54,6 @@ const ScrollVelocityFramer = ({ text, velocity = 5, className = '' }: ScrollVelo
   return (
     <div className="w-full overflow-hidden whitespace-nowrap">
       <motion.div style={{ x }} className="flex whitespace-nowrap w-full">
-        {/* Repeat 10x untuk ensure 100% coverage */}
         <span className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold inline-block ${className}`}>
           {text} {text} {text} {text} {text} {text} {text} {text} {text} {text} {text} {text} {text} {text} {text} {text} {text} {text} {text} {text}
         </span>
