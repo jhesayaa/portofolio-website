@@ -28,12 +28,26 @@ const Certificates = () => {
       image: '/certificates/izzaweb.jpg', 
       skills: ['Laravel', 'PHP', 'PHP M', 'TypeScript'],
     },
+    {
+      title: 'Courses',
+      issuer: 'Skillshop',
+      date: 'Nov 2025',
+      image: '/certificates/sertifgoogle1.png', 
+      skills: ['AI-Powered'],
+    },
         {
-      title: 'Internship in IZZAWEB',
-      issuer: 'IZZAWEB',
-      date: 'Dec 2024',
-      image: '/certificates/izzaweb.jpg', 
-      skills: ['Laravel', 'PHP', 'PHP M', 'TypeScript'],
+      title: 'Courses',
+      issuer: 'Skillshop',
+      date: 'Nov 2025',
+      image: '/certificates/sertifgoogle2.png', 
+      skills: ['Google Analytics'],
+    },
+        {
+      title: 'Courses',
+      issuer: 'IBM',
+      date: 'Nov 2025',
+      image: '/certificates/sertifibm1.png', 
+      skills: ['Data Fundamental'],
     },
   ];
 
