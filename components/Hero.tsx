@@ -84,7 +84,7 @@ const Hero = () => {
 
   const stats = [
     { value: '3', suffix: '+', label: 'Years Experience' },
-    { value: '10', suffix: '+', label: 'Projects Done' },
+    { value: '9', label: 'Projects Done' },
     { value: '20', suffix: '+', label: 'Technologies' },
   ];
 

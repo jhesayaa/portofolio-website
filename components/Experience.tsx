@@ -5,7 +5,6 @@ import { useRef, useMemo } from 'react';
 import { Briefcase, Calendar, MapPin } from 'lucide-react';
 import ParallaxSection from './ParallaxSection';
 import ScrambleText from './ScrambleText';
-import ElectricBorder from './ElectricBorder';
 
 interface ExperienceItem {
   company: string;
@@ -62,7 +61,7 @@ const Experience = () => {
         'Collaborated with team to deliver client projects on time',
         'Implemented responsive designs and optimized application performance',
       ],
-      technologies: ['React', 'Next.js', 'Laravel', 'PHP', 'Node.js', 'MySQL', 'PostgreSQL', 'MongoDB', 'Tailwind CSS'],
+      technologies: ['Laravel', 'PHP', 'MySQL', 'Tailwind CSS', 'Cpanel'],
       type: 'work',
     },
     {
@@ -180,13 +179,6 @@ const Experience = () => {
                 >
                   <div className="absolute left-1/2 transform -translate-x-1/2 top-6 w-4 h-4 rounded-full bg-gradient-to-br from-primary-600 to-pink-600 border-4 border-black hidden lg:block z-10" />
                   <div className={isLeft ? 'lg:mr-8' : 'lg:ml-8'}>
-                    <ElectricBorder
-                      color={getElectricBorderColor(exp.type)}
-                      speed={1}
-                      chaos={0.5}
-                      thickness={2}
-                      style={{ borderRadius: 16 }}
-                    >
                       <div className="glass rounded-2xl p-6 group bg-black/50">
                         <div className="flex flex-col md:flex-row md:items-start justify-between mb-4 gap-4">
                           <div className="flex-1">
@@ -233,7 +225,6 @@ const Experience = () => {
                           ))}
                         </div>
                       </div>
-                    </ElectricBorder>
                   </div>
                 </motion.div>
               );

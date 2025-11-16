@@ -21,7 +21,7 @@ const Footer = () => {
     {
       name: 'LinkedIn',
       icon: <Linkedin className="w-5 h-5" />,
-      href: 'https://linkedin.com/in/jhesayaa',
+      href: 'https://www.linkedin.com/in/jhesaya-giovani-andromeda-25853a320?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app',
       color: 'hover:text-blue-400',
     },
     {

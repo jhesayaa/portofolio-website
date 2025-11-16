@@ -37,25 +37,25 @@ const About = () => {
     {
       name: 'GitHub',
       icon: <Github className="w-5 h-5" />,
-      href: 'https://github.com/yourusername',
+      href: 'https://github.com/jhesayaa',
       color: 'hover:border-gray-400'
     },
     {
       name: 'LinkedIn',
       icon: <Linkedin className="w-5 h-5" />,
-      href: 'https://linkedin.com/in/yourusername',
+      href: 'https://www.linkedin.com/in/jhesaya-giovani-andromeda-25853a320?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app',
       color: 'hover:border-blue-400'
     },
     {
       name: 'Instagram',
       icon: <Instagram className="w-5 h-5" />,
-      href: 'https://instagram.com/yourusername',
+      href: 'https://instagram.com/jhesayaa',
       color: 'hover:border-pink-400'
     },
     {
       name: 'Email',
       icon: <Mail className="w-5 h-5" />,
-      href: 'mailto:your.email@example.com',
+      href: 'mailto:jessa.andromeda@gmail.com',
       color: 'hover:border-primary-400'
     },
   ];

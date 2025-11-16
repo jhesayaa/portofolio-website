@@ -28,6 +28,13 @@ const Certificates = () => {
       image: '/certificates/izzaweb.jpg', 
       skills: ['Laravel', 'PHP', 'PHP M', 'TypeScript'],
     },
+        {
+      title: 'DNCC',
+      issuer: 'DNCC',
+      date: 'Nov 2024',
+      image: '/certificates/sertifdncc.png', 
+      skills: ['Pandas, Numpy, Python, Scikit-Learn'],
+    },
     {
       title: 'Courses',
       issuer: 'Skillshop',

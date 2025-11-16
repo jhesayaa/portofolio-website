@@ -59,7 +59,7 @@ const ProfileCard = () => {
             </motion.p>
             <div className="w-full grid grid-cols-3 gap-4 mb-6">
               <div className="text-center p-3 rounded-xl bg-white/5 border border-white/10">
-                <div className="text-2xl font-bold text-white">10+</div>
+                <div className="text-2xl font-bold text-white">9</div>
                 <div className="text-xs text-gray-400">Projects</div>
               </div>
               <div className="text-center p-3 rounded-xl bg-white/5 border border-white/10">
