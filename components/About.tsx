@@ -122,7 +122,7 @@ const About = () => {
                     </div>
                     <div className="flex items-center gap-2 mt-3">
                       <Star className="w-4 h-4 text-primary-400" />
-                      <span className="text-sm font-semibold text-white">GPA: -/4.0</span>
+                      <span className="text-sm font-semibold text-white">GPA: - /4.0</span>
                     </div>
                   </div>
                   <div className="grid grid-cols-2 gap-3">
