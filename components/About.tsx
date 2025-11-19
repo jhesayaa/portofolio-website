@@ -83,7 +83,6 @@ const About = () => {
             className="grid md:grid-cols-2 gap-12 items-center mb-16"
           >
             <motion.div variants={itemVariants} className="space-y-6">
-              {/* Introduction Card */}
               <TiltCard>
                 <div className="glass rounded-2xl p-6 border border-white/10 hover:border-primary-500 transition-all duration-300">
                   <div className="flex items-center gap-3 mb-4">
