@@ -78,9 +78,8 @@ const Experience = () => {
       technologies: ['Data Entry', 'Documentation', 'Microsoft Office', 'Database Management'],
       type: 'work',
     },
-  ], []); // ← Empty deps = hanya calculate sekali
+  ], []); 
 
-  // Memoize helper functions
   const getTypeColor = useMemo(() => (type: ExperienceItem['type']) => {
     const colors = {
       work: 'bg-green-500/20 text-green-400 border-green-500/30',
@@ -108,7 +107,6 @@ const Experience = () => {
     return colors[type];
   }, []);
 
-  // Memoize variants
   const containerVariants = useMemo(() => ({
     hidden: { opacity: 0 },
     visible: {
